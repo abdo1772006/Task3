@@ -1,11 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 3</title>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    input { display: block; margin-top: 5px; padding: 5px; width: 250px; }
+    .error { color: red; font-size: 14px; }
+  </style>
 </head>
 <body>
-    
+    <header>
+         <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="validation.html">Registration Form</a></li>
+        <li><a href="data.html">Data Table</data></a></li>
+    </ul>
+    </header>
+
+  <h2>Registration Form</h2>
+
+  <form id="myForm">
+    Name:
+    <input type="text" id="name">
+    <p class="error" id="nameError"></p>
+
+    Email:
+    <input type="text" id="email">
+    <p class="error" id="emailError"></p>
+
+    Password:
+    <input type="password" id="password">
+    <p class="error" id="passwordError"></p>
+
+    Confirm password:
+    <input type="password" id="confirm">
+    <p class="error" id="confirmError"></p>
+
+    Age:
+    <input type="text" id="age">
+    <p class="error" id="ageError"></p>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    var form = document.getElementById("myForm");
+
+    form.onsubmit = function (e) {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirm = document.getElementById("confirm").value;
+      var age = document.getElementById("age").value;
+
+      var valid = true;
+
+      // clear old errors
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("passwordError").innerHTML = "";
+      document.getElementById("confirmError").innerHTML = "";
+      document.getElementById("ageError").innerHTML = "";
+
+      // name
+      if (name == "") {
+        document.getElementById("nameError").innerHTML = "Name is required.";
+        valid = false;
+      }
+
+      // email
+      if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+        document.getElementById("emailError").innerHTML = "Please enter a valid email.";
+        valid = false;
+      }
+
+      // password
+      if (password.length < 8) {
+        document.getElementById("passwordError").innerHTML = "Password must be at least 8 characters.";
+        valid = false;
+      }
+
+      // confirm password
+      if (confirm != password) {
+        document.getElementById("confirmError").innerHTML = "Passwords do not match.";
+        valid = false;
+      }
+
+      // age
+      if (age == "" || isNaN(age) || age < 1 || age > 120) {
+        document.getElementById("ageError").innerHTML = "Please enter a valid age.";
+        valid = false;
+      }
+
+      // stop the form if something is wrong
+      if (valid == false) {
+        e.preventDefault();
+      }
+    };
+  </script>
+
 </body>
 </html>

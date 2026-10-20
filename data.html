@@ -3,9 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 3</title>
+   <title>Data Table</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    table { border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid black; padding: 8px 15px; }
+    input { padding: 5px; width: 200px; }
+  </style>
+
 </head>
 <body>
-    
+      <header>
+         <ul>
+        <li><a href="index.html">home</a></li>
+        <li><a href="validation.html">Registration Form</a></li>
+        <li><a href="data.html">Data Table</data></a></li>
+    </ul>
+    </header>
+<h2>People</h2>
+ 
+  <input type="text" id="search" placeholder="Search...">
+  <button onclick="sortByName()">Sort by name</button>
+  <button onclick="sortByAge()">Sort by age</button>
+ 
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+ 
+  <script>
+    var people = [
+      { name: "Ahmed", age: 25, city: "Cairo" },
+      { name: "Sara", age: 22, city: "Alexandria" },
+      { name: "Omar", age: 30, city: "Giza" },
+      { name: "Mona", age: 28, city: "Cairo" },
+      { name: "Youssef", age: 19, city: "Mansoura" },
+      { name: "Nour", age: 35, city: "Aswan" }
+    ];
+ 
+    var tableBody = document.getElementById("tableBody");
+    var search = document.getElementById("search");
+ 
+    // show the array in the table
+    function showTable(list) {
+      var rows = "";
+      for (var i = 0; i < list.length; i++) {
+        rows += "<tr>";
+        rows += "<td>" + list[i].name + "</td>";
+        rows += "<td>" + list[i].age + "</td>";
+        rows += "<td>" + list[i].city + "</td>";
+        rows += "</tr>";
+      }
+      tableBody.innerHTML = rows;
+    }
+ 
+    // search while typing
+    search.onkeyup = function () {
+      var text = search.value.toLowerCase();
+      var result = [];
+ 
+      for (var i = 0; i < people.length; i++) {
+        var p = people[i];
+        if (p.name.toLowerCase().indexOf(text) != -1 ||
+            p.city.toLowerCase().indexOf(text) != -1 ||
+            String(p.age).indexOf(text) != -1) {
+          result.push(p);
+        }
+      }
+ 
+      showTable(result);
+    };
+ 
+    // sort by name
+    function sortByName() {
+      people.sort(function (a, b) {
+        return a.name.localeCompare(b.name);
+      });
+      showTable(people);
+    }
+ 
+    // sort by age
+    function sortByAge() {
+      people.sort(function (a, b) {
+        return a.age - b.age;
+      });
+      showTable(people);
+    }
+ 
+    // show the table when the page opens
+    showTable(people);
+  </script>
+ 
 </body>
 </html>
+ 
