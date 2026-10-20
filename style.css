@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  color: #222;
+  margin: 0;
+  padding: 20px;
+}
+ 
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+ 
+
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+ 
+
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+ 
+.card {
+  background: #eef0ff;
+  padding: 16px;
+  border-radius: 8px;
+}
+ 
+
+label { display: block; margin-top: 10px; }
+input, select { padding: 8px; width: 250px; }
+ 
+button, .btn {
+  background: #0b1f8f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+ 
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+ 
+.overlay:target { visibility: visible; }
+ 
+.dialog {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+}
+ 
+
+.alert {
+  background: #e6f4ea;
+  color: #0b3d1a;
+  padding: 12px;
+  border-radius: 6px;
+}
+ 
+
+@media (prefers-color-scheme: dark) {
+  body { background: #121212; color: #eee; }
+  .card { background: #1a1f3d; }
+  input, select { background: #1e1e1e; color: #eee; border: 1px solid #999; }
+  button, .btn { background: #9fb0ff; color: #0a0f2e; }
+  .dialog { background: #1e1e1e; color: #eee; }
+  .alert { background: #12301c; color: #c8f0d4; }
+}

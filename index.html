@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 3</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <header>
+    <h1>Task 3</h1>
+  </header>
+ 
+  <main>
+    <h2>Cards</h2>
+    <div class="grid">
+      <div class="card"><h3>Card 1</h3><p>Some text.</p></div>
+      <div class="card"><h3>Card 2</h3><p>Some text.</p></div>
+      <div class="card"><h3>Card 3</h3><p>Some text.</p></div>
+      <div class="card"><h3>Card 4</h3><p>Some text.</p></div>
+      <div class="card"><h3>Card 5</h3><p>Some text.</p></div>
+      <div class="card"><h3>Card 6</h3><p>Some text.</p></div>
+    </div>
+ 
+    <h2>Form</h2>
+    <form>
+      <label for="name">Name</label>
+      <input id="name" type="text">
+ 
+      <label for="city">City</label>
+      <select id="city">
+        <option>Cairo</option>
+        <option>Alexandria</option>
+      </select>
+ 
+      <button type="submit">Send</button>
+    </form>
+ 
+    <h2>Modal</h2>
+    <a class="btn" href="#modal">Open modal</a>
+ 
+    <div id="modal" class="overlay">
+      <div class="dialog">
+        <h3>Hello!</h3>
+        <a class="btn" href="#">Close</a>
+      </div>
+    </div>
+ 
+    <h2>Alert</h2>
+    <p class="alert">Saved successfully.</p>
+  </main>
 </body>
 </html>
