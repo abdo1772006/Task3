@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
    <title>Data Table</title>
   <style>
     body { font-family: Arial; margin: 30px; }
@@ -102,4 +103,48 @@
  
 </body>
 </html>
+
+
+
+<input type="text" id="search" placeholder="search .....">
+<button onclick="sortByName()">sortByName </button>
+<button onclick="sortByAge()">sortByAge</button>
+
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Country</th>
+
+</tr>
+
+
+</thead>
+<tbody id="tableBody"></tbody>
+
+</table>
+
+<script>
+var people =[{Name:"mohamed",Age:20,country:"cairo" },
+  {Name :"Hany",Age : 19 ,country :"Alex"}
+];
+
+var tableBody =document.getElementById(tableBody);
+var search =document.getElementById(search);
+
+function showTable(list){
+var rows ="";
+for(var i =0;i<list.length;i++){
+  rows+="<tr>";
+  rows+="<td>"+ list[i].name + "</td>";
+ rows += "<td>" + list[i].age + "</td>";
  
+}
+}
+
+
+
+
+</script>
